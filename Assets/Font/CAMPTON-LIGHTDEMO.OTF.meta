@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 46e225b5cf7a20a4e8743bf1adc100c7
+timeCreated: 1506611776
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Campton
+  fontNames:
+  - Campton
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 3180b378ac79050448666d023ed0948d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

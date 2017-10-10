@@ -1,0 +1,11 @@
+1. Tekan tombol mulai petualangan untuk mulai bermain.
+
+2. Scan kode museum, ketika handphone bergetar sebagai tanda kode telah terbaca, tekan tombol “Selanjutnya”.
+
+3. Jawab setiap pertanyaan yang diberikan dengan mencari objek yang dimaksud di area museum.
+
+4. Tekan tombol “Scan QR Code” untuk membuka kamera dan scan QR Code dari objek tersebut. Bila jawaban benar maka akan muncul notifikasi “Correct!” dan poin yang ditampilkan pada bagian atas layar akan bertmbah, bila jawaban salah, maka akan muncul notifikasi “False!”.
+
+5. Bila semua pertanyaan telah terjawab tekan tombol "Selesai".
+
+6. Tekan tombol back pada handphone untuk kembali ke halaman utama.
