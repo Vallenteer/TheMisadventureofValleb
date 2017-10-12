@@ -10,15 +10,15 @@ public class QuestionQR : MonoBehaviour
 {
 
     private IScanner BarcodeScanner;
-    public Text TextHeader;
-    public RawImage Image;
+   // public Text TextHeader;
+    public RawImage QRImage;
     //public AudioSource Audio;
     private float RestartTime;
 
     private bool CanAnswer = false;
 
     private bool nextValue = false;
-    [SerializeField] Button nextButton;
+    [SerializeField] GameObject nextButton;
     [Header("Point Config")]
     [SerializeField] Text pointHolder;
     public int Qpoint = 5;
@@ -28,6 +28,10 @@ public class QuestionQR : MonoBehaviour
     [SerializeField] GameObject Qholder;
     [SerializeField] Text questionHandler;
 
+    [Header("Image Correct Thingy")]
+    [SerializeField] Image imageAnnounHolder;
+    [SerializeField] Sprite correctImage;
+    [SerializeField] Sprite falseImage;
 
     [Header("Question List")]
     [SerializeField] string[] questionList;
@@ -44,9 +48,10 @@ public class QuestionQR : MonoBehaviour
     void Start()
     {
         //hide next Button
-        nextButton.interactable = false;
+        nextButton.SetActive(false);
         sizeArry = questionList.Length;
-
+        QRImage.enabled = false;
+        imageAnnounHolder.enabled = false;
 
         //Set First Question
         indexSoal = 0;
@@ -59,12 +64,12 @@ public class QuestionQR : MonoBehaviour
         // Display the camera texture through a RawImage
         BarcodeScanner.OnReady += (sender, arg) => {
             // Set Orientation & Texture
-            Image.transform.localEulerAngles = BarcodeScanner.Camera.GetEulerAngles();
-            Image.transform.localScale = BarcodeScanner.Camera.GetScale();
-            Image.texture = BarcodeScanner.Camera.Texture;
+            QRImage.transform.localEulerAngles = BarcodeScanner.Camera.GetEulerAngles();
+            QRImage.transform.localScale = BarcodeScanner.Camera.GetScale();
+            QRImage.texture = BarcodeScanner.Camera.Texture;
 
             // Keep Image Aspect Ratio
-            var rect = Image.GetComponent<RectTransform>();
+            var rect = QRImage.GetComponent<RectTransform>();
             var newHeight = rect.sizeDelta.x * BarcodeScanner.Camera.Height / BarcodeScanner.Camera.Width;
             rect.sizeDelta = new Vector2(rect.sizeDelta.x, newHeight);
 
@@ -89,22 +94,28 @@ public class QuestionQR : MonoBehaviour
             {
                 if (barCodeValue == answerList[indexSoal])
                 {
-                    TextHeader.color = Color.green;
-                    TextHeader.text = "Correct!!";
+
+                    imageAnnounHolder.enabled = true;
+                    imageAnnounHolder.sprite = correctImage;
+                   // TextHeader.color = Color.green;
+                   // TextHeader.text = "Correct!!";
                     PlayerPoin += Qpoint;
-                    nextButton.interactable = true;
+                    nextButton.SetActive(true);
                     CanAnswer = false;
                 }
                 else
                 {
-                    TextHeader.color = Color.red;
-                    TextHeader.text = "False Answer";
+                    imageAnnounHolder.enabled = true;
+                    imageAnnounHolder.sprite = falseImage;
+                   // TextHeader.color = Color.red;
+                   // TextHeader.text = "False Answer";
                     if (Qpoint > 1)
                     {
                         Qpoint--;
                     }
                     Qholder.SetActive(true);
-                    nextButton.interactable = true;
+                    QRImage.enabled = false;
+                    nextButton.SetActive(true);
                     CanAnswer = false;
                 }
 
@@ -147,26 +158,32 @@ public class QuestionQR : MonoBehaviour
     public void ScanStart()
     {
         Qholder.SetActive(false);
+        imageAnnounHolder.enabled = false;
+        QRImage.enabled = true;
         CanAnswer = true;
     }
     public void NextQuestion()
     {
+        QRImage.enabled = false;
+        imageAnnounHolder.enabled = false;
         //cek apakah soal sudah habis atau belum
         if (indexSoal < questionList.Length)
         {
             //reset all parameter and move to next question
             Qpoint = 5;
             indexSoal++;
-            TextHeader.text = "";
+           // TextHeader.text = "";
             questionHandler.text = questionList[indexSoal];
-            nextButton.interactable = false;
+            nextButton.SetActive(false);
             CanAnswer = false;
             Qholder.SetActive(true);
         }
         else
         {
             //to point shower
-            SceneManager.LoadScene(3);
+            StartCoroutine(StopCamera(() => {
+                SceneManager.LoadScene(3);
+            }));
         }
 
     }
@@ -189,7 +206,7 @@ public class QuestionQR : MonoBehaviour
     public IEnumerator StopCamera(Action callback)
     {
         // Stop Scanning
-        Image = null;
+        QRImage = null;
         BarcodeScanner.Destroy();
         BarcodeScanner = null;
 
