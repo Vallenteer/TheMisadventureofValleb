@@ -2,6 +2,7 @@
 using BarcodeScanner.Scanner;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -43,6 +44,25 @@ public class QuestionQR : MonoBehaviour
     {
         Screen.autorotateToPortrait = false;
         Screen.autorotateToPortraitUpsideDown = false;
+
+        //generate soal
+        DataService ds = new DataService("museum.db");
+        var questions = ds.GetPertanyaanMuseum(ContiQRRead.Museum_ID);
+        MakeQuestion(questions);
+
+    }
+    private void MakeQuestion(IEnumerable<Pertanyaan> DaftarPertanyaan)
+    {
+        int i = 0;
+        foreach (var question in DaftarPertanyaan)
+        {
+            if (i < questionList.Length)
+            {
+                questionList[i] = question.soal;
+                answerList[i] = question.jawaban;
+                i++;
+            }
+        }
     }
 
     void Start()

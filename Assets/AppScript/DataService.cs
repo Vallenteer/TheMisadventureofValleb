@@ -64,16 +64,52 @@ public class DataService  {
 
 		_connection.InsertAll (new[]{
 			new Pertanyaan{
-				soal = "Nama presiden republik indonesia?",
-				jawaban = "Jokowi",
-				museum_id = "RI"
-			},
+				soal = "Mobil apa yang pernah digunakan ratu Elizabeth?",
+				jawaban = "Mobil Bentley",
+				museum_id = "Museum Prototipe"
+            },
 			new Pertanyaan{
-				soal = "Nama wakil presiden republik indonesia?",
-				jawaban = "Jusuf Kalla",
-				museum_id = "RI"
-			}
-		});
+				soal = "Alat apa yang dapat digunakan untuk pertanian, upacara , dan barter di jawa barat?",
+				jawaban = "Adze",
+				museum_id = "Museum Prototipe"
+            },new Pertanyaan{
+                soal = "Kubur batu hanya untuk masyrakat dengan status sosial tinggi pada zaman dahulu adalah..",
+                jawaban = "Sarkofagus",
+                museum_id = "Museum Prototipe"
+            },
+            new Pertanyaan{
+                soal = "Rumah khusus untuk laki laki papua adalah...",
+                jawaban = "Rumah Kon",
+                museum_id = "Museum Prototipe"
+            },new Pertanyaan{
+                soal = "Koleksi terbesar di museum Zoologi Bogor ...",
+                jawaban = "Ikan Paus Biru Raksasa",
+                museum_id = "Museum Prototipe"
+            },
+            new Pertanyaan{
+                soal = "Siapa yang menemukan hukum gravitasi dan membuat teleskop refleksi pertama kali?",
+                jawaban = "Sir Isaac Newton",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Benda yang digunakan untuk melihat benda-benda yang berukuran kecil (mikroskopis)",
+                jawaban = "Mikroskop",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Pembangkit yang mengandalkan  energipotensial  dan kinetik dari air untuk menghasilkan energi listrik",
+                jawaban = "PLTA",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Alat dari selsurya (silium) yang mengubah cahaya menjadi listrik adalah?",
+                jawaban = "Panel surya",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Lapisan di atmosfer pada ketinggian 20−35 km di atas permukaan bumi.",
+                jawaban = "Lapisan ozon",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+        });
 	}
 
     //read All list

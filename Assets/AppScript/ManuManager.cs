@@ -8,10 +8,7 @@ public class ManuManager : MonoBehaviour {
     {
         SceneManager.LoadScene(1);
     }
-    public void NextButton()
-    {
-        SceneManager.LoadScene(2);
-    }
+    
     public void MainMenuLoad()
     {
         SceneManager.LoadScene(0);
@@ -27,8 +24,13 @@ public class ManuManager : MonoBehaviour {
     
     // Use this for initialization
 	void Start () {
-		
-	}
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            // Debug.Log("test");
+            DataService ds = new DataService("museum.db");
+            ds.CreateDB();
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {

@@ -7,8 +7,7 @@ public class DBStarter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		DataService ds = new DataService("museum.db");
-        ds.CreateDB();
-        
+        ds.CreateDB();    
         //ds.CreatePertanyaan ();
 		//ds.GetPertanyaanWhereJawabanJK ();
 	}

@@ -2,6 +2,7 @@
 using BarcodeScanner.Scanner;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,6 +17,9 @@ public class ContiQRRead : MonoBehaviour {
 
     private bool nextValue = false;
     [SerializeField] Button nextButton;
+    public static string Museum_ID;
+
+    [SerializeField] List<string> MuseumNames;
 
     // Disable Screen Rotation on that screen
     void Awake()
@@ -64,7 +68,7 @@ public class ContiQRRead : MonoBehaviour {
             //if Succeed Read Code
             if (barCodeType == "QR_CODE")
             {
-                if (barCodeValue == "Museum Prototipe")
+                if (checkMuseum(barCodeValue))
                 {
                     TextHeader.text = barCodeValue;
                     nextButton.interactable = true;
@@ -84,6 +88,19 @@ public class ContiQRRead : MonoBehaviour {
 			Handheld.Vibrate();
 #endif
         });
+    }
+
+    private bool checkMuseum(string BarcodeRead)
+    {
+        foreach (string museum in MuseumNames)
+        {
+            if (BarcodeRead == museum)
+            {
+                Museum_ID = museum;
+                return true;
+            }
+        }
+        return false;
     }
 
     /// <summary>
@@ -110,10 +127,16 @@ public class ContiQRRead : MonoBehaviour {
     {
         // Try to stop the camera before loading another scene
         StartCoroutine(StopCamera(() => {
-            SceneManager.LoadScene("Boot");
+            SceneManager.LoadScene(0);
         }));
     }
-
+    public void NextButton()
+    {
+        StartCoroutine(StopCamera(() => {
+            SceneManager.LoadScene(2);
+        }));
+       
+    }
     /// <summary>
     /// This coroutine is used because of a bug with unity (http://forum.unity3d.com/threads/closing-scene-with-active-webcamtexture-crashes-on-android-solved.363566/)
     /// Trying to stop the camera in OnDestroy provoke random crash on Android
