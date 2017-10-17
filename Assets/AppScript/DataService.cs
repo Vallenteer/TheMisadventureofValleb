@@ -76,24 +76,21 @@ public class DataService  {
 		});
 	}
 
+    //read All list
 	public IEnumerable<Pertanyaan> GetPertanyaan(){
 		return _connection.Table<Pertanyaan>();
 	}
 
-	public IEnumerable<Pertanyaan> GetPertanyaanWhereJawabanJK(){
-	Debug.Log (_connection.Table<Pertanyaan>().Where(x => x.jawaban == "Jusuf Kalla"));
-		return _connection.Table<Pertanyaan>().Where(x => x.jawaban == "Jusuf Kalla");
-	}
-
-	public Pertanyaan GetJokowi(){
-		return _connection.Table<Pertanyaan>().Where(x => x.jawaban == "Jokowi").FirstOrDefault();
+    //read Query
+	public IEnumerable<Pertanyaan> GetPertanyaanMuseum(string museumID){
+		return _connection.Table<Pertanyaan>().Where(x => x.museum_id ==museumID );
 	}
 
 	public Pertanyaan CreatePertanyaan(){
 		var p = new Pertanyaan{
-			soal = "Ibu negara RI?",
-			jawaban = "Iriana Jokowi",
-			museum_id = "RI"
+			soal = "Soal",
+			jawaban = "Jawaban",
+			museum_id = "ID"
 		};
 		_connection.Insert (p);
 		return p;
