@@ -15,7 +15,7 @@ public class QuestionQR : MonoBehaviour
     public RawImage QRImage;
     //public AudioSource Audio;
     private float RestartTime;
-
+    
     private bool CanAnswer = false;
 
     private bool nextValue = false;
@@ -33,12 +33,15 @@ public class QuestionQR : MonoBehaviour
     [SerializeField] Image imageAnnounHolder;
     [SerializeField] Sprite correctImage;
     [SerializeField] Sprite falseImage;
-
+    [SerializeField] GameObject TextAnswerHolder;
+    [SerializeField] Text answerTextShow;
     [Header("Question List")]
     [SerializeField] string[] questionList;
     [SerializeField] string[] answerList;
     int sizeArry;
     int indexSoal;
+
+    private bool _isPushed;
     // Disable Screen Rotation on that screen
     void Awake()
     {
@@ -49,6 +52,7 @@ public class QuestionQR : MonoBehaviour
         DataService ds = new DataService("museum.db");
         var questions = ds.GetPertanyaanMuseum(ContiQRRead.Museum_ID);
         MakeQuestion(questions);
+        _isPushed = false;
 
     }
     private void MakeQuestion(IEnumerable<Pertanyaan> DaftarPertanyaan)
@@ -72,6 +76,7 @@ public class QuestionQR : MonoBehaviour
         sizeArry = questionList.Length;
         QRImage.enabled = false;
         imageAnnounHolder.enabled = false;
+        TextAnswerHolder.SetActive(false);
 
         //Set First Question
         indexSoal = 0;
@@ -112,6 +117,8 @@ public class QuestionQR : MonoBehaviour
             //if Succeed Read Code
             if (barCodeType == "QR_CODE" && CanAnswer==true)
             {
+                answerTextShow.text = barCodeValue;
+                TextAnswerHolder.SetActive(true);
                 if (barCodeValue == answerList[indexSoal])
                 {
 
@@ -168,26 +175,48 @@ public class QuestionQR : MonoBehaviour
             StartScanner();
             RestartTime = 0;
         }
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape)&& _isPushed==false)
         {
-            ClickBack();
+            if (Qholder.activeSelf == true)
+            {
+
+                //Debug.Log("Henshin:");
+                StartCoroutine(Pushbutton());
+                ClickBack();
+            }
+            else
+            {
+                StartCoroutine(Pushbutton());
+                QRImage.enabled = false;
+                CanAnswer = false;
+                Qholder.SetActive(true);
+            }
         }
+    }
+
+    IEnumerator Pushbutton()
+    {
+        _isPushed = true;
+        yield return new WaitForSeconds(0.7f);
+        _isPushed = false;
     }
 
     #region UI Buttons
     public void ScanStart()
     {
         Qholder.SetActive(false);
+        TextAnswerHolder.SetActive(false);
         imageAnnounHolder.enabled = false;
         QRImage.enabled = true;
         CanAnswer = true;
     }
     public void NextQuestion()
     {
+        TextAnswerHolder.SetActive(false);
         QRImage.enabled = false;
         imageAnnounHolder.enabled = false;
         //cek apakah soal sudah habis atau belum
-        if (indexSoal < questionList.Length)
+        if (indexSoal < questionList.Length-1)
         {
             //reset all parameter and move to next question
             Qpoint = 5;

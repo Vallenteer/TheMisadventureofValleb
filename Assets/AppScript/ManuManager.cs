@@ -17,6 +17,10 @@ public class ManuManager : MonoBehaviour {
     {
         SceneManager.LoadScene(4);
     }
+    public void ProfilePage()
+    {
+        SceneManager.LoadScene(5);
+    }
     public void ExitApp()
     {
         Application.Quit();

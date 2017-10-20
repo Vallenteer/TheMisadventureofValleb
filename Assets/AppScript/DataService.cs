@@ -73,7 +73,7 @@ public class DataService  {
 				jawaban = "Adze",
 				museum_id = "Museum Prototipe"
             },new Pertanyaan{
-                soal = "Kubur batu hanya untuk masyrakat dengan status sosial tinggi pada zaman dahulu adalah..",
+                soal = "Kubur batu yang hanya untuk masyrakat dengan status sosial tinggi pada zaman dahulu adalah..",
                 jawaban = "Sarkofagus",
                 museum_id = "Museum Prototipe"
             },
