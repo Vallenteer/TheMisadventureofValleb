@@ -230,9 +230,9 @@ public class QuestionQR : MonoBehaviour
         else
         {
             //to point shower
-            StartCoroutine(StopCamera(() => {
+            //StartCoroutine(StopCamera(() => {
                 SceneManager.LoadScene(3);
-            }));
+            //}));
         }
 
     }
@@ -240,9 +240,9 @@ public class QuestionQR : MonoBehaviour
     public void ClickBack()
     {
         // Try to stop the camera before loading another scene
-        StartCoroutine(StopCamera(() => {
+        //StartCoroutine(StopCamera(() => {
             SceneManager.LoadScene(0);
-        }));
+        //}));
     }
 
 

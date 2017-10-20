@@ -142,9 +142,9 @@ public class ContiQRRead : MonoBehaviour {
     public void ClickBack()
     {
         // Try to stop the camera before loading another scene
-        StartCoroutine(StopCamera(() => {
+        //StartCoroutine(StopCamera(() => {
             SceneManager.LoadScene(0);
-        }));
+        //}));
     }
     public void NextButton()
     {
