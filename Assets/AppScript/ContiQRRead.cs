@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ContiQRRead : MonoBehaviour {
-
+    private bool _isPushed;
     private IScanner BarcodeScanner;
     public Text TextHeader;
     public RawImage Image;
@@ -24,8 +24,8 @@ public class ContiQRRead : MonoBehaviour {
     // Disable Screen Rotation on that screen
     void Awake()
     {
-        Screen.autorotateToPortrait = false;
-        Screen.autorotateToPortraitUpsideDown = false;
+        Screen.autorotateToPortrait = true;
+        Screen.autorotateToPortraitUpsideDown = true;
     }
 
     void Start()
@@ -119,6 +119,22 @@ public class ContiQRRead : MonoBehaviour {
             StartScanner();
             RestartTime = 0;
         }
+        if (Input.GetKey(KeyCode.Escape) && _isPushed == false)
+        {
+
+
+            //Debug.Log("Henshin:");
+            StartCoroutine(Pushbutton());
+            ClickBack();
+        }
+
+
+    }
+    IEnumerator Pushbutton()
+    {
+        _isPushed = true;
+        yield return new WaitForSeconds(0.7f);
+        _isPushed = false;
     }
 
     #region UI Buttons
@@ -126,9 +142,9 @@ public class ContiQRRead : MonoBehaviour {
     public void ClickBack()
     {
         // Try to stop the camera before loading another scene
-        StartCoroutine(StopCamera(() => {
+        //StartCoroutine(StopCamera(() => {
             SceneManager.LoadScene(0);
-        }));
+        //}));
     }
     public void NextButton()
     {
