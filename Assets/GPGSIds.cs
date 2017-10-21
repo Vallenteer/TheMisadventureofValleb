@@ -25,6 +25,7 @@
 public static class GPGSIds
 {
         public const string leaderboard_museum_leaderboards = "CgkIxsu0uqQIEAIQAg"; // <GPGSID>
+        public const string achievement_1_qr_code_scanned = "CgkIxsu0uqQIEAIQAw"; // <GPGSID>
 
 }
 

@@ -27,6 +27,13 @@ public class GPGDemo : MonoBehaviour
 			{
 				if (success) {
 					Debug.Log ("Login Sucess");
+					if (Social.localUser.authenticated) {
+						//PlayGamesPlatform.Instance.ShowAchievementsUI();
+						Social.ShowAchievementsUI();
+					}
+					else {
+						Debug.Log("Disini nih");
+					}
 				} else {
 					Debug.Log ("Login failed");
 				}
@@ -64,5 +71,15 @@ public class GPGDemo : MonoBehaviour
 	{
 		((PlayGamesPlatform)Social.Active).SignOut ();
 	}
+
+	public void ShowAchievements() {
+		if (PlayGamesPlatform.Instance.localUser.authenticated) {
+			PlayGamesPlatform.Instance.ShowAchievementsUI();
+		}
+		else {
+			Debug.Log("Cannot show Achievements, not logged in");
+		}
+	}
+
 	#endregion
 }
