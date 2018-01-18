@@ -59,11 +59,24 @@ public class DataService  {
 	}
 
 	public void CreateDB(){
+        //drop all
 		_connection.DropTable<Pertanyaan> ();
-		_connection.CreateTable<Pertanyaan> ();
+        _connection.DropTable<tb_achivement>();
+        //create all
+        _connection.CreateTable<Pertanyaan> ();
+        _connection.CreateTable<tb_achivement>();
 
+
+        _connection.InsertAll(new[]{
+            new tb_achivement{
+                nama_achivement="First Use",
+                sudah_tercapai="true"
+               
+            }
+        });
 		_connection.InsertAll (new[]{
-			new Pertanyaan{
+            
+            new Pertanyaan{
 				soal = "Mobil apa yang pernah digunakan ratu Elizabeth?",
 				jawaban = "Mobil Bentley",
 				museum_id = "Museum Prototipe"
@@ -108,9 +121,11 @@ public class DataService  {
                 soal = "Lapisan di atmosfer pada ketinggian 20−35 km di atas permukaan bumi.",
                 jawaban = "Lapisan ozon",
                 museum_id = "MUSEUM PPIPTEK TMII"
-            },
+            }
+             
         });
-	}
+        
+    }
 
     //read All list
 	public IEnumerable<Pertanyaan> GetPertanyaan(){
@@ -121,7 +136,10 @@ public class DataService  {
 	public IEnumerable<Pertanyaan> GetPertanyaanMuseum(string museumID){
 		return _connection.Table<Pertanyaan>().Where(x => x.museum_id ==museumID );
 	}
-
+    public IEnumerable<tb_achivement> CheckFirstTimeUse()
+    {
+        return _connection.Table<tb_achivement>();
+    }
 	public Pertanyaan CreatePertanyaan(){
 		var p = new Pertanyaan{
 			soal = "Soal",
@@ -131,4 +149,17 @@ public class DataService  {
 		_connection.Insert (p);
 		return p;
 	}
+
+    public void UpdateStatusSoal(int idSoal, int statusSoal)
+    {
+
+        _connection.Execute("UPDATE Pertanyaan SET telah_dijawab = " + statusSoal + " WHERE id = " + idSoal);
+
+    }
+    public void UpdateSoal(int idSoal, string statusSoal)
+    {
+        
+        _connection.Execute("UPDATE Pertanyaan SET soal = '" + statusSoal + "' WHERE id = " + idSoal);
+
+    }
 }

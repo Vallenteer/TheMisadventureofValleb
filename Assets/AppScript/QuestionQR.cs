@@ -41,6 +41,7 @@ public class QuestionQR : MonoBehaviour
     int sizeArry;
     int indexSoal;
 
+
     private bool _isPushed;
     // Disable Screen Rotation on that screen
     void Awake()

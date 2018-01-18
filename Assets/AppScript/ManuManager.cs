@@ -30,9 +30,23 @@ public class ManuManager : MonoBehaviour {
 	void Start () {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
+           // PlayerPrefs.SetInt("HasPlayed", 0);
+            int playTime = PlayerPrefs.GetInt("HasPlayed");
+            
             // Debug.Log("test");
             DataService ds = new DataService("museum.db");
-            ds.CreateDB();
+            Debug.Log(playTime);
+            if (playTime == 0)
+            {
+                ds.CreateDB();
+                PlayerPrefs.SetInt("HasPlayed", 1);
+            }
+            else
+            {
+                
+                playTime++;
+                PlayerPrefs.SetInt("HasPlayed", playTime);
+            }
         }
     }
 	
