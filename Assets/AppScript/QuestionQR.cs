@@ -38,9 +38,10 @@ public class QuestionQR : MonoBehaviour
     [Header("Question List")]
     [SerializeField] string[] questionList;
     [SerializeField] string[] answerList;
+    int[] IDquestionList;
     int sizeArry;
     int indexSoal;
-
+    DataService ds;
 
     private bool _isPushed;
     // Disable Screen Rotation on that screen
@@ -50,7 +51,7 @@ public class QuestionQR : MonoBehaviour
         Screen.autorotateToPortraitUpsideDown = false;
 
         //generate soal
-        DataService ds = new DataService("museum.db");
+        ds = new DataService("museum.db");
         var questions = ds.GetPertanyaanMuseum(ContiQRRead.Museum_ID);
         MakeQuestion(questions);
         _isPushed = false;
@@ -58,15 +59,25 @@ public class QuestionQR : MonoBehaviour
     }
     private void MakeQuestion(IEnumerable<Pertanyaan> DaftarPertanyaan)
     {
+        int playCount = PlayerPrefs.GetInt(ContiQRRead.Museum_ID + "Played");
         int i = 0;
-        foreach (var question in DaftarPertanyaan)
+        if (playCount == 0)
         {
-            if (i < questionList.Length)
+            foreach (var question in DaftarPertanyaan)
             {
-                questionList[i] = question.soal;
-                answerList[i] = question.jawaban;
-                i++;
+                if (i < questionList.Length)
+                {
+                    IDquestionList[i] = question.id;
+                    questionList[i] = question.soal;
+                    answerList[i] = question.jawaban;
+                    i++;
+                }
             }
+        }
+        else
+        {
+
+
         }
     }
 
@@ -120,9 +131,10 @@ public class QuestionQR : MonoBehaviour
             {
                 answerTextShow.text = barCodeValue;
                 TextAnswerHolder.SetActive(true);
+                //cek apakah jawaban benar atau tidak
                 if (barCodeValue == answerList[indexSoal])
                 {
-
+                    ds.UpdateStatusSoal(IDquestionList[indexSoal], 1);
                     imageAnnounHolder.enabled = true;
                     imageAnnounHolder.sprite = correctImage;
                    // TextHeader.color = Color.green;
