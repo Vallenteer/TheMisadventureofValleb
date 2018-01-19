@@ -61,6 +61,7 @@ public class QuestionQR : MonoBehaviour
     {
         int playCount = PlayerPrefs.GetInt(ContiQRRead.Museum_ID + "Played");
         int i = 0;
+        //jika pertama kali main museum tersebut maka akan ada pertanyaan wajib ini
         if (playCount == 0)
         {
             foreach (var question in DaftarPertanyaan)
@@ -76,7 +77,25 @@ public class QuestionQR : MonoBehaviour
         }
         else
         {
-
+            //mencoba random pertanyaan masih berbeda2 dari soal pertama
+            //belom batas soal               
+            int count = 0;
+            foreach (var question in DaftarPertanyaan)
+            {
+                count++;
+                if (i < questionList.Length && count>14)
+                {
+                    int randomPicker = UnityEngine.Random.Range(1, 10);
+                    if (randomPicker < 5 && Array.Exists(IDquestionList, element => element == question.id))
+                    {
+                        IDquestionList[i] = question.id;
+                        questionList[i] = question.soal;
+                        answerList[i] = question.jawaban;
+                        i++;
+                    }
+                }
+            }
+            
 
         }
     }
