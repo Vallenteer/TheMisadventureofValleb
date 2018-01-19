@@ -261,9 +261,11 @@ public class QuestionQR : MonoBehaviour
         }
         else
         {
+            int playCount = PlayerPrefs.GetInt(ContiQRRead.Museum_ID + "Played");
+            PlayerPrefs.SetInt(ContiQRRead.Museum_ID + "Played", playCount+1);
             //to point shower
             //StartCoroutine(StopCamera(() => {
-                SceneManager.LoadScene(3);
+            SceneManager.LoadScene(3);
             //}));
         }
 
