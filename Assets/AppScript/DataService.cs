@@ -99,30 +99,99 @@ public class DataService  {
                 jawaban = "Ikan Paus Biru Raksasa",
                 museum_id = "Museum Prototipe"
             },
+
+
             new Pertanyaan{
-                soal = "Siapa yang menemukan hukum gravitasi dan membuat teleskop refleksi pertama kali?",
-                jawaban = "Sir Isaac Newton",
+                soal = "Bagaimana cara menghindar terjadinya penularan sakit flu melalui bersin?",
+                jawaban = "Etika Bersin",
+                petunjuk ="Lantai 3",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },new Pertanyaan{
-                soal = "Benda yang digunakan untuk melihat benda-benda yang berukuran kecil (mikroskopis)",
+                soal = "Lapisan ozon yang paling jauh dari bumi adalah?",
+                jawaban = "Lapisan Ozon Mesosfer",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Molekul rantai tunggal yang pembentukannya dikode oleh DNA dan dapat ditranslasikan menjadi protein adalah? ",
+                jawaban = "RNA (Ribose Nucleic Acid)",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Beberapa hal yang dapat membuat virus mati adalah? ",
+                jawaban = "Panas dan pengawetan dengan pengeringan",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Berapa tinggi burung Kasuari? ",
+                jawaban = "1,8 Meter",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+
+
+
+            new Pertanyaan{
+                soal = "Apakah benar parabola dapat mengumpulkan dan menguatkan sinyal suara dengan mengumpulkannya pada suatu titik fokus?",
+                jawaban = "Benar",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Bunyi merambat melalui medium yaitu? ",
+                jawaban = "Udara",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Planet yang memiliki kecepatan paling tinggi ketika mengelilingi matahari adalah?",
+                jawaban = "Merkurius",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Apa rumus untuk mencari kecepatan (V)?",
+                jawaban = "l/t",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Apa alat yang dapat membantu manusia untuk melihat benda yang terlalu kecil untuk dilihat dengan mata telanjang?",
                 jawaban = "Mikroskop",
+                petunjuk ="Lantai 3",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },
+
+
+
             new Pertanyaan{
-                soal = "Pembangkit yang mengandalkan  energipotensial  dan kinetik dari air untuk menghasilkan energi listrik",
-                jawaban = "PLTA",
+                soal = "Apakah benar udara mengalir memiliki tekanan yang lebih tinggi dibandingkan tekanan udara di sekitarnya? ",
+                jawaban = "Salah",
+                petunjuk ="Lantai 3",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },new Pertanyaan{
-                soal = "Alat dari selsurya (silium) yang mengubah cahaya menjadi listrik adalah?",
-                jawaban = "Panel surya",
+                soal = "Dinosaurus apakah yang yang memiliki cula seperti badak ? ",
+                jawaban = "Triceratops",
+                petunjuk ="Lantai 3",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },
             new Pertanyaan{
-                soal = "Lapisan di atmosfer pada ketinggian 20−35 km di atas permukaan bumi.",
-                jawaban = "Lapisan ozon",
+                soal = "Terbagi menjadi berapa periode kah era mesozoic? ",
+                jawaban = "Tiga Periode",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Ketika muatan listrik pada bola logam van de graff mengalir menuju tubuh dan rambut kita, maka rambut kita akan naik karena terjadi?",
+                jawaban = "Tolak Menolak",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Apa teknologi yang digunakan Shinkanzen untuk menjaga agar tekanan di dalam kereta tetap?",
+                jawaban = "Kereta Kedap Udara",
+                petunjuk ="Lantai 3",
                 museum_id = "MUSEUM PPIPTEK TMII"
             }
-             
+
         });
         
     }
