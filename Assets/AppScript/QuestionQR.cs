@@ -80,22 +80,24 @@ public class QuestionQR : MonoBehaviour
             //mencoba random pertanyaan masih berbeda2 dari soal pertama
             //belom batas soal               
             int count = 0;
-            foreach (var question in DaftarPertanyaan)
+            while (i < questionList.Length)
             {
-                count++;
-                if (i < questionList.Length && count>14)
+                foreach (var question in DaftarPertanyaan)
                 {
-                    int randomPicker = UnityEngine.Random.Range(1, 10);
-                    if (randomPicker < 5 && Array.Exists(IDquestionList, element => element == question.id))
+                    count++;
+                    if (i < questionList.Length && count > 14)
                     {
-                        IDquestionList[i] = question.id;
-                        questionList[i] = question.soal;
-                        answerList[i] = question.jawaban;
-                        i++;
+                        int randomPicker = UnityEngine.Random.Range(1, 10);
+                        if (randomPicker < 5 && Array.Exists(IDquestionList, element => element == question.id))
+                        {
+                            IDquestionList[i] = question.id;
+                            questionList[i] = question.soal;
+                            answerList[i] = question.jawaban;
+                            i++;
+                        }
                     }
                 }
             }
-            
 
         }
     }
