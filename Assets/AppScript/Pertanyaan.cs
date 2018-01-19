@@ -8,6 +8,7 @@ public class Pertanyaan  {
 	public string jawaban { get; set; }
 	public string museum_id { get; set; }
     public bool telah_dijawab { get; set; }
+    public string petunjuk { get; set; }
 
     public override string ToString ()
 	{
