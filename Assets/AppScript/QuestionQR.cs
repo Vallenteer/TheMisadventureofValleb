@@ -38,7 +38,7 @@ public class QuestionQR : MonoBehaviour
     [Header("Question List")]
     [SerializeField] string[] questionList;
     [SerializeField] string[] answerList;
-    int[] IDquestionList;
+    [SerializeField]int[] IDquestionList;
     int sizeArry;
     int indexSoal;
     DataService ds;
@@ -88,7 +88,7 @@ public class QuestionQR : MonoBehaviour
                     if (i < questionList.Length && count > 14)
                     {
                         int randomPicker = UnityEngine.Random.Range(1, 10);
-                        if (randomPicker < 5 && Array.Exists(IDquestionList, element => element == question.id))
+                        if (randomPicker < 5 && !Array.Exists(IDquestionList, element => element == question.id))
                         {
                             IDquestionList[i] = question.id;
                             questionList[i] = question.soal;
@@ -150,6 +150,8 @@ public class QuestionQR : MonoBehaviour
             //if Succeed Read Code
             if (barCodeType == "QR_CODE" && CanAnswer==true)
             {
+                int QRCount=PlayerPrefs.GetInt("CountQR");
+                PlayerPrefs.SetInt("CountQR", QRCount + 1);
                 answerTextShow.text = barCodeValue;
                 TextAnswerHolder.SetActive(true);
                 //cek apakah jawaban benar atau tidak

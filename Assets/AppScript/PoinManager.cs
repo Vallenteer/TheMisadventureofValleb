@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class PoinManager : MonoBehaviour {
 
@@ -25,11 +25,26 @@ public class PoinManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        if (PlayerPrefs.GetInt("TukarGelas") == 1)
+        {
+            buttonTukar.GetComponent<Button>().interactable = false;
+        }
+
 		
 	}
 
     public void TukarButton()
     {
-        PlayerPrefs.SetInt("PlayerScore", 0);
+        int sem = PlayerPrefs.GetInt("PlayerScore");
+        if (sem > 19)
+        {
+            PlayerPrefs.SetInt("PlayerScore", sem - 20);
+            PlayerPrefs.SetInt("TukarGelas", 1);
+            SceneManager.LoadScene(6);
+        }
+        else
+        {
+            PoinHolder.text = "Poin Masih Kurang, Untuk menukarkan gelas butuh 20 poin";
+        }
     }
 }
