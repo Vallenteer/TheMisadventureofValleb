@@ -263,8 +263,17 @@ public class QuestionQR : MonoBehaviour
         }
         else
         {
+            int playAllCount = PlayerPrefs.GetInt("TotalAllPlayed");
             int playCount = PlayerPrefs.GetInt(ContiQRRead.Museum_ID + "Played");
+
+
             PlayerPrefs.SetInt(ContiQRRead.Museum_ID + "Played", playCount+1);
+            PlayerPrefs.SetInt("TotalAllPlayed", playAllCount + 1);
+
+            //menambahkan score dari dulu ke yang sekarang
+            int currentPoint = PlayerPrefs.GetInt("PlayerScore") + PlayerPoin;
+            PlayerPrefs.SetInt("PlayerScore", currentPoint);
+
             //to point shower
             //StartCoroutine(StopCamera(() => {
             SceneManager.LoadScene(3);
