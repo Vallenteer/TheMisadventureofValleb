@@ -150,7 +150,7 @@ public class DataService  {
                 museum_id = "MUSEUM PPIPTEK TMII"
             },new Pertanyaan{
                 soal = "Apa rumus untuk mencari kecepatan (V)?",
-                jawaban = "l/t",
+                jawaban = "L/T",
                 petunjuk ="Lantai 3",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },
