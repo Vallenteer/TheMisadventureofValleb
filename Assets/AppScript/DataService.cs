@@ -190,8 +190,194 @@ public class DataService  {
                 jawaban = "Kereta Kedap Udara",
                 petunjuk ="Lantai 3",
                 museum_id = "MUSEUM PPIPTEK TMII"
-            }
+            },
 
+        
+            //soal untuk dimainkan ke-dua kali
+            			new Pertanyaan{
+                soal = "Bagaimana sakit flu dapat menular kepada orang lain?",
+                jawaban = "Melalui Semburan Air Liur",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Bagaimana cara menghindari penyebaran virus melalui sentuhan? ",
+                jawaban = "Mencuci Tangan Dengan Teratur",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Apakah benar seseorang dapat terkena flu karena debu?",
+                jawaban = "Salah",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Apakah benar seseorang dapat terkena flu karena memakai kipas angin?",
+                jawaban = "Salah",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Pelangi dapat terbentuk ketika tetesan air hujan menyebar diantara? ",
+                jawaban = "Cahaya matahari",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+
+
+                        new Pertanyaan{
+                soal = "Cahaya matahari dering disebut cahaya putih atau juga dapat disebut?",
+                jawaban = "Polikromatik",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Lapisan ozon yang melindungi bumi dari radiasi UV-B matahari adalah?",
+                jawaban = "Lapisan Ozon Stratosfer",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Molekul ozon pada lapisan mana yang dapat sebagai pencemar dan berbahaya bagi kesehatan manusia",
+                jawaban = "Lapisan Ozon Troposfer",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Glikoprotein pada permukaan virus, berfungsi sebagai pengikat antara virus dengan permukaan sel inang adalah?",
+                jawaban = "Haemaglutinin",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Glikoprotein pada permukaan virus, sebagai enzim yang membantu proses inspeksi ke sel inang adalah?",
+                jawaban = "Neuraminidase",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+
+
+
+
+                new Pertanyaan{
+                soal = "Ketika kita menghirup udara saat bernapas, maka rongga udara pada paru-paru akan ... ?",
+                jawaban = "Mengembang",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Sinar yang melewati prisma akan terurai menjadi? ",
+                jawaban = "Spektrum Pelangi",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Apa prinsip yang digunakan pada layar TV, layar komputer dan monitor video? ",
+                jawaban = "Pixel",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Apa benda pengukur waktu yang terdiri atas dua tabung (atas dan bawah) dan berisi pasir kering?",
+                jawaban = "Jam pasir",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Apa bentuk lintasan orbit benda langit seperti planet dan bintang? ",
+                jawaban = "Elips",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+			
+			
+			//KETIGA
+			
+				new Pertanyaan{
+                soal = "Enzim yang bertugas mengenali tempat tertentu pada rantai DNA yang menentukan mulainya transkripsi (duplikasi kode DNA) adalah?",
+                jawaban = "Polimerase (Enzim)",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Kombinasi protein dan karbohidrat dalam jumlah besar adalah? ",
+                jawaban = "Nukleoprotein",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Selubung virus yang tersusun atas dua lapis lipid (lemak) adalah?",
+                jawaban = "Senyawa Lipid Dua Lapis",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Lapisan protein di bawah selubung lipid adalah?",
+                jawaban = "Matriks Protein",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Karena ukurannya yang sangat kecil, virus hanya daat dilihat menggunakan? ",
+                jawaban = "Mikroskop Elektron",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+
+
+                        new Pertanyaan{
+                soal = "Berapa tinggi burung unta? ",
+                jawaban = "2.5 Meter",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Berapa tinggi angsa? ",
+                jawaban = "84 Centimeter",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Apa alat yang digunakan oleh kapten kapal pada zaman dahulu untuk berkomunksi dengan ahli mesin?",
+                jawaban = "Tabung Suara",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Perbedan tekanan di luar angkasa yang sangat dramatis dapat membuat tubuh manusia meledak karena?",
+                jawaban = "Tubuh Terdifusi",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Berapa tinggi burung kolibri (hummingbird)",
+                jawaban = "4.2 Centimeter",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+
+
+
+
+                new Pertanyaan{
+                soal = "Bentuk apa yang akan terbentuk ketika bidang pengiris memotong kerucut tegak lurus sumbu kerucut?",
+                jawaban = "Lingkaran",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Bentuk apa yang akan terbentuk ketika bidang pengiris memotong kerucut melalui alas kerucut?",
+                jawaban = "Parabola",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Bentuk apa yang akan terbentuk ketika bidang pengiris memotong kerucut searah sumbu kerucut?",
+                jawaban = "Hiperbola",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Berapa tinggi burung merpati? ",
+                jawaban = "27 Centimeter",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Berapa tinggi ayam?",
+                jawaban = "48 Centimeter",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            }
         });
         
     }
