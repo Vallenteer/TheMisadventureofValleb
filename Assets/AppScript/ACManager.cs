@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ACManager : MonoBehaviour {
     [SerializeField] Button[] ACTampilan;
-
+    [SerializeField] GameObject[] Checklist;
 
 	// Use this for initialization
 	void Start () {
@@ -14,10 +14,12 @@ public class ACManager : MonoBehaviour {
             if (PlayerPrefs.GetInt("AC" + i) == 1)
             {
                 ACTampilan[i].interactable = true;
+                Checklist[i].gameObject.SetActive(true);
             }
             else
             {
                 ACTampilan[i].interactable = false;
+                Checklist[i].gameObject.SetActive(false);
             }
 
         }

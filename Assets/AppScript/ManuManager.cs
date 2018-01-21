@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ManuManager : MonoBehaviour {
-
+    [SerializeField] GameObject ACWatcher;
     public void PlayButton()
     {
         SceneManager.LoadScene(1);
     }
-    
+    public void PrestasiLoad()
+    {
+        SceneManager.LoadScene(7);
+    }
     public void MainMenuLoad()
     {
         SceneManager.LoadScene(0);
@@ -30,7 +33,7 @@ public class ManuManager : MonoBehaviour {
 	void Start () {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-           // PlayerPrefs.SetInt("HasPlayed", 0);
+           //PlayerPrefs.SetInt("HasPlayed", 0);
             int playTime = PlayerPrefs.GetInt("HasPlayed");
             
             // Debug.Log("test");
@@ -47,6 +50,13 @@ public class ManuManager : MonoBehaviour {
                 playTime++;
                 PlayerPrefs.SetInt("HasPlayed", playTime);
             }
+
+            if (!GameObject.FindGameObjectWithTag("ACWatcher"))
+            {
+                DontDestroyOnLoad(Instantiate(ACWatcher,gameObject.transform.position,gameObject.transform.rotation));
+            }
+
+
         }
     }
 	
