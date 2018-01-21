@@ -11,7 +11,7 @@ public class ACManager : MonoBehaviour {
 	void Start () {
         for (int i = 0; i < ACTampilan.Length; i++)
         {
-            if (PlayerPrefs.GetInt("AC" + i) == 1)
+            if (PlayerPrefs.GetInt("AC" + (i+1)) == 1)
             {
                 ACTampilan[i].interactable = true;
                 Checklist[i].gameObject.SetActive(true);
