@@ -68,8 +68,14 @@ public class ContiQRRead : MonoBehaviour {
             //if Succeed Read Code
             if (barCodeType == "QR_CODE")
             {
+                int QRCount = PlayerPrefs.GetInt("CountQR");
+                PlayerPrefs.SetInt("CountQR", QRCount + 1);
                 if (checkMuseum(barCodeValue))
                 {
+                    if (barCodeValue == "MUSEUM PPIPTEK TMII")
+                    {
+                        PlayerPrefs.SetInt("VisitPPIPTEK", 1);
+                    }
                     TextHeader.text = barCodeValue;
                     nextButton.interactable = true;
                 }

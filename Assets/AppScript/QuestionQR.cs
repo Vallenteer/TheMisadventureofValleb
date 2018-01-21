@@ -276,9 +276,14 @@ public class QuestionQR : MonoBehaviour
             int currentPoint = PlayerPrefs.GetInt("PlayerScore") + PlayerPoin;
             PlayerPrefs.SetInt("PlayerScore", currentPoint);
 
+            if (ContiQRRead.Museum_ID == "MUSEUM PPIPTEK TMII" && PlayerPoin > 74)
+            {
+                PlayerPrefs.SetInt("PPIPTEKPERFECT", 1);
+            }
+
             //to point shower
             //StartCoroutine(StopCamera(() => {
-            SceneManager.LoadScene(3);
+                SceneManager.LoadScene(3);
             //}));
         }
 
