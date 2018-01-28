@@ -173,12 +173,6 @@ public class DataService  {
                 jawaban = "Triceratops",
                 petunjuk ="Lantai 3",
                 museum_id = "MUSEUM PPIPTEK TMII"
-            },
-            new Pertanyaan{
-                soal = "Terbagi menjadi berapa periode kah era mesozoic? ",
-                jawaban = "Tiga Periode",
-                petunjuk ="Lantai 3",
-                museum_id = "MUSEUM PPIPTEK TMII"
             },new Pertanyaan{
                 soal = "Ketika muatan listrik pada bola logam van de graff mengalir menuju tubuh dan rambut kita, maka rambut kita akan naik karena terjadi?",
                 jawaban = "Tolak Menolak",
@@ -188,6 +182,12 @@ public class DataService  {
             new Pertanyaan{
                 soal = "Apa teknologi yang digunakan Shinkanzen untuk menjaga agar tekanan di dalam kereta tetap?",
                 jawaban = "Kereta Kedap Udara",
+                petunjuk ="Lantai 3",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
+            new Pertanyaan{
+                soal = "Terbagi menjadi berapa periode kah era mesozoic? ",
+                jawaban = "Tiga Periode",
                 petunjuk ="Lantai 3",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },

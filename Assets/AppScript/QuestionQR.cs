@@ -39,6 +39,7 @@ public class QuestionQR : MonoBehaviour
     [SerializeField] string[] questionList;
     [SerializeField] string[] answerList;
     [SerializeField]int[] IDquestionList;
+    [SerializeField]string[] petunjutkList;
     int sizeArry;
     int indexSoal;
     DataService ds;
@@ -49,6 +50,7 @@ public class QuestionQR : MonoBehaviour
     {
         Screen.autorotateToPortrait = false;
         Screen.autorotateToPortraitUpsideDown = false;
+
 
         //generate soal
         ds = new DataService("museum.db");
@@ -61,45 +63,21 @@ public class QuestionQR : MonoBehaviour
     {
         int playCount = PlayerPrefs.GetInt(ContiQRRead.Museum_ID + "Played");
         int i = 0;
-        //jika pertama kali main museum tersebut maka akan ada pertanyaan wajib ini
-        if (playCount == 0)
+        //soal akan terus ngurut kebawah saja ( Sementara ini nanti akan dibuat random)
+        foreach (var question in DaftarPertanyaan)
         {
-            foreach (var question in DaftarPertanyaan)
+            if (i < questionList.Length && question.telah_dijawab == false)
             {
-                if (i < questionList.Length)
-                {
-                    IDquestionList[i] = question.id;
-                    questionList[i] = question.soal;
-                    answerList[i] = question.jawaban;
-                    i++;
-                }
+                IDquestionList[i] = question.id;
+                questionList[i] = question.soal;
+                answerList[i] = question.jawaban;
+                i++;
             }
         }
-        else
-        {
-            //mencoba random pertanyaan masih berbeda2 dari soal pertama
-            //belom batas soal               
-            int count = 0;
-            while (i < questionList.Length)
-            {
-                foreach (var question in DaftarPertanyaan)
-                {
-                    count++;
-                    if (i < questionList.Length && count > 14)
-                    {
-                        int randomPicker = UnityEngine.Random.Range(1, 10);
-                        if (randomPicker < 5 && !Array.Exists(IDquestionList, element => element == question.id))
-                        {
-                            IDquestionList[i] = question.id;
-                            questionList[i] = question.soal;
-                            answerList[i] = question.jawaban;
-                            i++;
-                        }
-                    }
-                }
-            }
 
-        }
+        
+
+        
     }
 
     void Start()
@@ -110,6 +88,7 @@ public class QuestionQR : MonoBehaviour
         QRImage.enabled = false;
         imageAnnounHolder.enabled = false;
         TextAnswerHolder.SetActive(false);
+
 
         //Set First Question
         indexSoal = 0;
@@ -165,6 +144,10 @@ public class QuestionQR : MonoBehaviour
                     PlayerPoin += Qpoint;
                     nextButton.SetActive(true);
                     CanAnswer = false;
+                    //update ke database bahwa soal benar && update poin langsung.
+                    ds.UpdateStatusSoal(IDquestionList[indexSoal], 1);
+                    UpdateScore(Qpoint);
+
                 }
                 else
                 {
@@ -230,6 +213,13 @@ public class QuestionQR : MonoBehaviour
         }
     }
 
+    public void UpdateScore(int getScore)
+    {
+        //menambahkan score dari dulu ke yang sekarang
+        int currentPoint = PlayerPrefs.GetInt("PlayerScore") + getScore;
+        PlayerPrefs.SetInt("PlayerScore", currentPoint);
+    }
+
     IEnumerator Pushbutton()
     {
         _isPushed = true;
@@ -272,11 +262,10 @@ public class QuestionQR : MonoBehaviour
             PlayerPrefs.SetInt(ContiQRRead.Museum_ID + "Played", playCount+1);
             PlayerPrefs.SetInt("TotalAllPlayed", playAllCount + 1);
 
-            //menambahkan score dari dulu ke yang sekarang
-            int currentPoint = PlayerPrefs.GetInt("PlayerScore") + PlayerPoin;
-            PlayerPrefs.SetInt("PlayerScore", currentPoint);
 
-            if (ContiQRRead.Museum_ID == "MUSEUM PPIPTEK TMII" && PlayerPoin > 74)
+
+            //batasnya harus dirubah nanti pke variable
+            if (ContiQRRead.Museum_ID == "MUSEUM PPIPTEK TMII" && PlayerPoin >= (sizeArry*5))
             {
                 PlayerPrefs.SetInt("PPIPTEKPERFECT", 1);
             }
