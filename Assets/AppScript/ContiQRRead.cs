@@ -96,6 +96,10 @@ public class ContiQRRead : MonoBehaviour {
         });
     }
 
+    public static void SetIDMuseum(string ID)
+    {
+        Museum_ID = ID;
+    }
     private bool checkMuseum(string BarcodeRead)
     {
         foreach (string museum in MuseumNames)

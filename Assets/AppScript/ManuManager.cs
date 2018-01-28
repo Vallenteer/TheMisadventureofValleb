@@ -6,7 +6,14 @@ public class ManuManager : MonoBehaviour {
     [SerializeField] GameObject ACWatcher;
     public void PlayButton()
     {
-        SceneManager.LoadScene(1);
+        if (PlayerPrefs.GetInt("PlayAdventure") == 0)
+        {
+            SceneManager.LoadScene(1);
+            PlayerPrefs.SetInt("PlayAdventure", 1);
+        }
+        else {
+            SceneManager.LoadScene(8);
+        }
     }
     public void PrestasiLoad()
     {
