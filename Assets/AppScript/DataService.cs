@@ -104,29 +104,29 @@ public class DataService  {
             new Pertanyaan{
                 soal = "Bagaimana cara menghindar terjadinya penularan sakit flu melalui bersin?",
                 jawaban = "Etika Bersin",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 3 - Influenza",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },new Pertanyaan{
                 soal = "Lapisan ozon yang paling jauh dari bumi adalah?",
                 jawaban = "Lapisan Ozon Mesosfer",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 3 - Ozon",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },
             new Pertanyaan{
                 soal = "Molekul rantai tunggal yang pembentukannya dikode oleh DNA dan dapat ditranslasikan menjadi protein adalah? ",
                 jawaban = "RNA (Ribose Nucleic Acid)",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 3 - Flu Burung",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },new Pertanyaan{
                 soal = "Beberapa hal yang dapat membuat virus mati adalah? ",
                 jawaban = "Panas dan pengawetan dengan pengeringan",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 3 - Flu Burung",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },
             new Pertanyaan{
                 soal = "Berapa tinggi burung Kasuari? ",
                 jawaban = "1,8 Meter",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 3 - Flu Burung",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },
 
@@ -135,29 +135,29 @@ public class DataService  {
             new Pertanyaan{
                 soal = "Apakah benar parabola dapat mengumpulkan dan menguatkan sinyal suara dengan mengumpulkannya pada suatu titik fokus?",
                 jawaban = "Benar",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 2 - Suara",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },new Pertanyaan{
                 soal = "Bunyi merambat melalui medium yaitu? ",
                 jawaban = "Udara",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 2 - Suara",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },
             new Pertanyaan{
                 soal = "Planet yang memiliki kecepatan paling tinggi ketika mengelilingi matahari adalah?",
                 jawaban = "Merkurius",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 2 - Bola Tennis",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },new Pertanyaan{
                 soal = "Apa rumus untuk mencari kecepatan (V)?",
                 jawaban = "L/T",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 2 - Ilmu Matematika (Sebelah Cahaya)",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },
             new Pertanyaan{
                 soal = "Apa alat yang dapat membantu manusia untuk melihat benda yang terlalu kecil untuk dilihat dengan mata telanjang?",
                 jawaban = "Mikroskop",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 2",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },
 
@@ -166,31 +166,31 @@ public class DataService  {
             new Pertanyaan{
                 soal = "Apakah benar udara mengalir memiliki tekanan yang lebih tinggi dibandingkan tekanan udara di sekitarnya? ",
                 jawaban = "Salah",
-                petunjuk ="Lantai 3",
-                museum_id = "MUSEUM PPIPTEK TMII"
-            },new Pertanyaan{
-                soal = "Dinosaurus apakah yang yang memiliki cula seperti badak ? ",
-                jawaban = "Triceratops",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 2 - 2 Bola",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },new Pertanyaan{
                 soal = "Ketika muatan listrik pada bola logam van de graff mengalir menuju tubuh dan rambut kita, maka rambut kita akan naik karena terjadi?",
                 jawaban = "Tolak Menolak",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 1 - Fisika",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },
             new Pertanyaan{
                 soal = "Apa teknologi yang digunakan Shinkanzen untuk menjaga agar tekanan di dalam kereta tetap?",
                 jawaban = "Kereta Kedap Udara",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 1 - Fisika",
                 museum_id = "MUSEUM PPIPTEK TMII"
-            },
-            new Pertanyaan{
+            },new Pertanyaan{
+                soal = "Dinosaurus apakah yang yang memiliki cula seperti badak ? ",
+                jawaban = "Triceratops",
+                petunjuk ="Lantai 1 - Dinosaurus",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
                 soal = "Terbagi menjadi berapa periode kah era mesozoic? ",
                 jawaban = "Tiga Periode",
                 petunjuk ="Lantai 3",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },
+            
 
         
             //soal untuk dimainkan ke-dua kali
@@ -259,7 +259,7 @@ public class DataService  {
                 new Pertanyaan{
                 soal = "Ketika kita menghirup udara saat bernapas, maka rongga udara pada paru-paru akan ... ?",
                 jawaban = "Mengembang",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 2",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },new Pertanyaan{
                 soal = "Sinar yang melewati prisma akan terurai menjadi? ",
@@ -270,18 +270,18 @@ public class DataService  {
             new Pertanyaan{
                 soal = "Apa prinsip yang digunakan pada layar TV, layar komputer dan monitor video? ",
                 jawaban = "Pixel",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 2",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },new Pertanyaan{
                 soal = "Apa benda pengukur waktu yang terdiri atas dua tabung (atas dan bawah) dan berisi pasir kering?",
                 jawaban = "Jam pasir",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 2",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },
             new Pertanyaan{
                 soal = "Apa bentuk lintasan orbit benda langit seperti planet dan bintang? ",
                 jawaban = "Elips",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 2",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },
 			
@@ -332,12 +332,12 @@ public class DataService  {
             new Pertanyaan{
                 soal = "Apa alat yang digunakan oleh kapten kapal pada zaman dahulu untuk berkomunksi dengan ahli mesin?",
                 jawaban = "Tabung Suara",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 2",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },new Pertanyaan{
                 soal = "Perbedan tekanan di luar angkasa yang sangat dramatis dapat membuat tubuh manusia meledak karena?",
                 jawaban = "Tubuh Terdifusi",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 2",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },
             new Pertanyaan{
@@ -353,18 +353,18 @@ public class DataService  {
                 new Pertanyaan{
                 soal = "Bentuk apa yang akan terbentuk ketika bidang pengiris memotong kerucut tegak lurus sumbu kerucut?",
                 jawaban = "Lingkaran",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 2",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },new Pertanyaan{
                 soal = "Bentuk apa yang akan terbentuk ketika bidang pengiris memotong kerucut melalui alas kerucut?",
                 jawaban = "Parabola",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 2",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },
             new Pertanyaan{
                 soal = "Bentuk apa yang akan terbentuk ketika bidang pengiris memotong kerucut searah sumbu kerucut?",
                 jawaban = "Hiperbola",
-                petunjuk ="Lantai 3",
+                petunjuk ="Lantai 2",
                 museum_id = "MUSEUM PPIPTEK TMII"
             },new Pertanyaan{
                 soal = "Berapa tinggi burung merpati? ",
