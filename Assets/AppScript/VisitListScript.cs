@@ -6,7 +6,7 @@ public class VisitListScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        if (PlayerPrefs.GetInt("MUSEUM PPIPTEK TMIIPlayed") > 0)
+        if (PlayerPrefs.GetInt("VisitPPIPTEK") > 0)
         {
             GetComponent<Button>().interactable = true;
         }
