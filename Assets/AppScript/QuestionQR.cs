@@ -20,6 +20,10 @@ public class QuestionQR : MonoBehaviour
 
     private bool nextValue = false;
     [SerializeField] GameObject nextButton;
+    [Header("Clue Config")]
+    [SerializeField] GameObject ClueCanvas;
+    [SerializeField] Text ClueText;
+
     [Header("Point Config")]
     [SerializeField] Text pointHolder;
     public int Qpoint = 5;
@@ -71,6 +75,7 @@ public class QuestionQR : MonoBehaviour
                 IDquestionList[i] = question.id;
                 questionList[i] = question.soal;
                 answerList[i] = question.jawaban;
+                petunjutkList[i] = question.petunjuk;
                 i++;
             }
         }
@@ -196,7 +201,12 @@ public class QuestionQR : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Escape)&& _isPushed==false)
         {
-            if (Qholder.activeSelf == true)
+            if (ClueCanvas.activeSelf==true)
+            {
+                closeClue();
+                StartCoroutine(Pushbutton());
+            }
+            else if (Qholder.activeSelf == true)
             {
 
                 //Debug.Log("Henshin:");
@@ -213,6 +223,15 @@ public class QuestionQR : MonoBehaviour
         }
     }
 
+    public void closeClue()
+    {
+        ClueCanvas.gameObject.SetActive(false);
+    }
+    public void OpenClue()
+    {
+        ClueCanvas.gameObject.SetActive(true);
+        ClueText.text = petunjutkList[indexSoal];
+    }
     public void UpdateScore(int getScore)
     {
         //menambahkan score dari dulu ke yang sekarang
