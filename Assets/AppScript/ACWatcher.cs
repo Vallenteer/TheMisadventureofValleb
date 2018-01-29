@@ -6,7 +6,7 @@ public class ACWatcher : MonoBehaviour
 {
     [SerializeField] Image ImageHolder;
     [SerializeField] Sprite[] SpriteImage;
-
+    [SerializeField] float timeShowAchivement= 2.5f;
     // Use this for initialization
     void Start()
     {
@@ -48,7 +48,7 @@ public class ACWatcher : MonoBehaviour
     {
         ImageHolder.sprite = SpriteImage[number];
         ImageHolder.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(timeShowAchivement);
         ImageHolder.gameObject.SetActive(false);
 
     }
