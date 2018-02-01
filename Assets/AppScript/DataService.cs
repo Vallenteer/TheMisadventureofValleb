@@ -100,7 +100,17 @@ public class DataService  {
                 museum_id = "Museum Prototipe"
             },
 
-
+            new Pertanyaan{
+                soal = "Dinosaurus apakah yang yang memiliki cula seperti badak ? ",
+                jawaban = "Triceratops",
+                petunjuk ="Lantai 1 - Dinosaurus",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },new Pertanyaan{
+                soal = "Terbagi menjadi berapa periode kah era mesozoic? ",
+                jawaban = "Tiga Periode",
+                petunjuk ="Lantai 1 - Dinosaurus",
+                museum_id = "MUSEUM PPIPTEK TMII"
+            },
             new Pertanyaan{
                 soal = "Bagaimana cara menghindar terjadinya penularan sakit flu melalui bersin?",
                 jawaban = "Etika Bersin",
