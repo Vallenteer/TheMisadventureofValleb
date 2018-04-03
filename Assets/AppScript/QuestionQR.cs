@@ -34,6 +34,7 @@ public class QuestionQR : MonoBehaviour
     [SerializeField] Text questionHandler;
 
     [Header("Image Correct Thingy")]
+    [SerializeField] GameObject AnswerCanvas;
     [SerializeField] Image imageAnnounHolder;
     [SerializeField] Sprite correctImage;
     [SerializeField] Sprite falseImage;
@@ -201,6 +202,11 @@ public class QuestionQR : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Escape)&& _isPushed==false)
         {
+            if (AnswerCanvas.activeSelf == true)
+            {
+                closeAnswer();
+            }
+
             if (ClueCanvas.activeSelf==true)
             {
                 closeClue();
@@ -221,6 +227,15 @@ public class QuestionQR : MonoBehaviour
                 Qholder.SetActive(true);
             }
         }
+    }
+
+    public void openAnswer()
+    {
+        AnswerCanvas.gameObject.SetActive(true);
+    }
+    public void closeAnswer()
+    {
+        AnswerCanvas.gameObject.SetActive(false);
     }
 
     public void closeClue()
