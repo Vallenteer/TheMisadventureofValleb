@@ -41,10 +41,13 @@ public class QuestionQR : MonoBehaviour
     [SerializeField] GameObject TextAnswerHolder;
     [SerializeField] Text answerTextShow;
     [Header("Question List")]
+    [SerializeField] Text currentIndex;
+    [SerializeField] Text maxIndex;
     [SerializeField] string[] questionList;
     [SerializeField] string[] answerList;
     [SerializeField]int[] IDquestionList;
     [SerializeField]string[] petunjutkList;
+    bool[] isAnswered;
     int sizeArry;
     int indexSoal;
     DataService ds;
@@ -62,7 +65,8 @@ public class QuestionQR : MonoBehaviour
         var questions = ds.GetPertanyaanMuseum(ContiQRRead.Museum_ID);
         MakeQuestion(questions);
         _isPushed = false;
-
+        //set point to zero
+        PlayerPoin = 0;
     }
     private void MakeQuestion(IEnumerable<Pertanyaan> DaftarPertanyaan)
     {
@@ -89,16 +93,22 @@ public class QuestionQR : MonoBehaviour
     void Start()
     {
         //hide next Button
-        nextButton.SetActive(false);
+        //nextButton.SetActive(false);
         sizeArry = questionList.Length;
         QRImage.enabled = false;
-        imageAnnounHolder.enabled = false;
-        TextAnswerHolder.SetActive(false);
+        //openAnswer();
+        //imageAnnounHolder.enabled = true;
+        //TextAnswerHolder.SetActive(true);
+        closeAnswer();
 
 
         //Set First Question
         indexSoal = 0;
         questionHandler.text=questionList[indexSoal];
+        maxIndex.text = questionList.Length.ToString();
+        isAnswered = new bool[questionList.Length];
+        //default : false
+        //Debug.Log(isAnswered[0].ToString());
 
         // Create a basic scanner
         BarcodeScanner = new Scanner();
@@ -138,6 +148,7 @@ public class QuestionQR : MonoBehaviour
                 int QRCount=PlayerPrefs.GetInt("CountQR");
                 PlayerPrefs.SetInt("CountQR", QRCount + 1);
                 answerTextShow.text = barCodeValue;
+                openAnswer();
                 TextAnswerHolder.SetActive(true);
                 //cek apakah jawaban benar atau tidak
                 if (barCodeValue == answerList[indexSoal])
@@ -145,14 +156,20 @@ public class QuestionQR : MonoBehaviour
                     ds.UpdateStatusSoal(IDquestionList[indexSoal], 1);
                     imageAnnounHolder.enabled = true;
                     imageAnnounHolder.sprite = correctImage;
-                   // TextHeader.color = Color.green;
-                   // TextHeader.text = "Correct!!";
-                    PlayerPoin += Qpoint;
+                    // TextHeader.color = Color.green;
+                    // TextHeader.text = "Correct!!";
+                    if(isAnswered[indexSoal]==false){
+                        PlayerPoin += Qpoint;
+                        UpdateScore(Qpoint);
+                    }
+                   
                     nextButton.SetActive(true);
                     CanAnswer = false;
                     //update ke database bahwa soal benar && update poin langsung.
                     ds.UpdateStatusSoal(IDquestionList[indexSoal], 1);
-                    UpdateScore(Qpoint);
+                    
+                    isAnswered[indexSoal] = true;
+                    //NextQuestion();
 
                 }
                 else
@@ -189,6 +206,7 @@ public class QuestionQR : MonoBehaviour
     void Update()
     {
         pointHolder.text = PlayerPoin.ToString();
+        currentIndex.text = (indexSoal + 1).ToString();
         if (BarcodeScanner != null)
         {
             BarcodeScanner.Update();
@@ -205,9 +223,9 @@ public class QuestionQR : MonoBehaviour
             if (AnswerCanvas.activeSelf == true)
             {
                 closeAnswer();
+                StartCoroutine(Pushbutton());
             }
-
-            if (ClueCanvas.activeSelf==true)
+            else if (ClueCanvas.activeSelf==true)
             {
                 closeClue();
                 StartCoroutine(Pushbutton());
@@ -235,7 +253,8 @@ public class QuestionQR : MonoBehaviour
     }
     public void closeAnswer()
     {
-        AnswerCanvas.gameObject.SetActive(false);
+        //QRImage.enabled = false;
+        AnswerCanvas.gameObject.SetActive(false);        
     }
 
     public void closeClue()
@@ -265,16 +284,48 @@ public class QuestionQR : MonoBehaviour
     public void ScanStart()
     {
         Qholder.SetActive(false);
-        TextAnswerHolder.SetActive(false);
-        imageAnnounHolder.enabled = false;
+        closeAnswer();
+        //TextAnswerHolder.SetActive(false);
+        //imageAnnounHolder.enabled = false;
         QRImage.enabled = true;
         CanAnswer = true;
     }
+
+    public void PrevQuestion()
+    {
+        QRImage.enabled = false;
+        closeAnswer();
+        //TextAnswerHolder.SetActive(false);
+        //imageAnnounHolder.enabled = false;
+        //cek apakah soal sudah habis atau belum
+        if (indexSoal > 0)
+        {
+            //reset all parameter and move to next question
+            Qpoint = 5;
+            indexSoal--;
+            // TextHeader.text = "";
+            questionHandler.text = questionList[indexSoal];
+            //nextButton.SetActive(false);
+            CanAnswer = false;
+            Qholder.SetActive(true);
+        }
+
+    }
+
+    public void NextQuestionProxy()
+    {
+        if (isAnswered[indexSoal] == true)
+        {
+            NextQuestion();
+        }
+    }
     public void NextQuestion()
     {
-        TextAnswerHolder.SetActive(false);
+        
         QRImage.enabled = false;
-        imageAnnounHolder.enabled = false;
+        closeAnswer();
+        //TextAnswerHolder.SetActive(false);
+        //imageAnnounHolder.enabled = false;
         //cek apakah soal sudah habis atau belum
         if (indexSoal < questionList.Length-1)
         {
@@ -283,7 +334,7 @@ public class QuestionQR : MonoBehaviour
             indexSoal++;
            // TextHeader.text = "";
             questionHandler.text = questionList[indexSoal];
-            nextButton.SetActive(false);
+            //nextButton.SetActive(false);
             CanAnswer = false;
             Qholder.SetActive(true);
         }
