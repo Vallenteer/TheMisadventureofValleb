@@ -33,6 +33,7 @@ public class QuestionQR : MonoBehaviour
     [Header("Question Holder")]
     [SerializeField] GameObject Qholder;
     [SerializeField] Text questionHandler;
+    [SerializeField] Button scanCaller;
 
     [Header("Image Correct Thingy")]
     [SerializeField] GameObject AnswerCanvas;
@@ -212,6 +213,16 @@ public class QuestionQR : MonoBehaviour
         {
             BarcodeScanner.Update();
         }
+        //if question already answerd cannot ansewer again
+        if (isAnswered[indexSoal] == true)
+        {
+            scanCaller.interactable = false;
+        }
+        else
+        {
+            scanCaller.interactable = true;
+        }
+
 
         // Check if the Scanner need to be started or restarted
         if (RestartTime != 0 && RestartTime < Time.realtimeSinceStartup)
