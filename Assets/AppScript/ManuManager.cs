@@ -79,7 +79,11 @@ public class ManuManager : MonoBehaviour {
             }
             else
             {
-                MainMenuLoad();
+                //if not in question, go to main menu. Question mode have another way to exit
+                if (SceneManager.GetActiveScene().buildIndex != 2)
+                {
+                    MainMenuLoad();
+                }
             }
         }
 		

@@ -19,6 +19,7 @@ public class QuestionQR : MonoBehaviour
     private bool CanAnswer = false;
 
     private bool nextValue = false;
+    [SerializeField] GameObject exitCanvas;
     [SerializeField] GameObject nextButton;
     [Header("Clue Config")]
     [SerializeField] GameObject ClueCanvas;
@@ -235,7 +236,8 @@ public class QuestionQR : MonoBehaviour
 
                 //Debug.Log("Henshin:");
                 StartCoroutine(Pushbutton());
-                ClickBack();
+                //ClickBack();
+                openExit();
             }
             else
             {
@@ -246,7 +248,12 @@ public class QuestionQR : MonoBehaviour
             }
         }
     }
-
+    public void openExit() {
+        exitCanvas.gameObject.SetActive(true);
+    }
+    public void closeExit() {
+        exitCanvas.gameObject.SetActive(false);
+    }
     public void openAnswer()
     {
         AnswerCanvas.gameObject.SetActive(true);
