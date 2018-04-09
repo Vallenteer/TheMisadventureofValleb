@@ -21,6 +21,7 @@ public class QuestionQR : MonoBehaviour
     private bool nextValue = false;
     [SerializeField] GameObject exitCanvas;
     [SerializeField] GameObject nextButton;
+    [SerializeField] GameObject next5Canvas;
     [Header("Clue Config")]
     [SerializeField] GameObject ClueCanvas;
     [SerializeField] Text ClueText;
@@ -242,6 +243,11 @@ public class QuestionQR : MonoBehaviour
                 closeClue();
                 StartCoroutine(Pushbutton());
             }
+            else if (next5Canvas.activeSelf == true)
+            {
+                closeNext();
+                StartCoroutine(Pushbutton());
+            }
             else if (Qholder.activeSelf == true)
             {
 
@@ -258,6 +264,15 @@ public class QuestionQR : MonoBehaviour
                 Qholder.SetActive(true);
             }
         }
+    }
+
+    public void openNext()
+    {
+        next5Canvas.gameObject.SetActive(true);
+    }
+    public void closeNext()
+    {
+        next5Canvas.gameObject.SetActive(false);
     }
     public void openExit() {
         exitCanvas.gameObject.SetActive(true);
@@ -358,28 +373,56 @@ public class QuestionQR : MonoBehaviour
         }
         else
         {
-            int playAllCount = PlayerPrefs.GetInt("TotalAllPlayed");
-            int playCount = PlayerPrefs.GetInt(ContiQRRead.Museum_ID + "Played");
 
-
-            PlayerPrefs.SetInt(ContiQRRead.Museum_ID + "Played", playCount+1);
-            PlayerPrefs.SetInt("TotalAllPlayed", playAllCount + 1);
-
-
-
-            //batasnya harus dirubah nanti pke variable
-            if (ContiQRRead.Museum_ID == "MUSEUM PPIPTEK TMII" && PlayerPoin >= (sizeArry*5))
+            bool containsFalse = false;
+            for (int j = 0; j < isAnswered.Length; j++)
             {
-                PlayerPrefs.SetInt("PPIPTEKPERFECT", 1);
+                //if the current element the array is equals to false, then containsFalse is true,
+                //then exit for loop
+                if (isAnswered[j] == false)
+                {
+                    containsFalse = true;
+                    break;
+                }
             }
 
-            //to point shower
-            //StartCoroutine(StopCamera(() => {
-                SceneManager.LoadScene(3);
-            //}));
+            if (containsFalse)
+            {
+                //your true_or_false array contains a false then open next5 canvas.
+                Qholder.SetActive(true);
+                openNext();
+
+            }
+            else {
+                //open score page
+                ScorePage();
+            }
         }
 
     }
+    public void ScorePage()
+    {
+        int playAllCount = PlayerPrefs.GetInt("TotalAllPlayed");
+        int playCount = PlayerPrefs.GetInt(ContiQRRead.Museum_ID + "Played");
+
+
+        PlayerPrefs.SetInt(ContiQRRead.Museum_ID + "Played", playCount + 1);
+        PlayerPrefs.SetInt("TotalAllPlayed", playAllCount + 1);
+
+
+
+        //batasnya harus dirubah nanti pke variable
+        if (ContiQRRead.Museum_ID == "MUSEUM PPIPTEK TMII" && PlayerPoin >= (sizeArry * 5))
+        {
+            PlayerPrefs.SetInt("PPIPTEKPERFECT", 1);
+        }
+
+        //to point shower
+        //StartCoroutine(StopCamera(() => {
+        SceneManager.LoadScene(3);
+        //}));
+    }
+
     //exit to main menu
     public void ClickBack()
     {
