@@ -35,6 +35,7 @@ public class QuestionQR : MonoBehaviour
     [SerializeField] GameObject Qholder;
     [SerializeField] Text questionHandler;
     [SerializeField] Button scanCaller;
+    [SerializeField] Text answerTextDone;
 
     [Header("Image Correct Thingy")]
     [SerializeField] GameObject AnswerCanvas;
@@ -50,7 +51,8 @@ public class QuestionQR : MonoBehaviour
     [SerializeField] string[] answerList;
     [SerializeField]int[] IDquestionList;
     [SerializeField]string[] petunjutkList;
-    bool[] isAnswered;
+    //klo uda pasti delete serliazenya  ya
+    [SerializeField]bool[] isAnswered;
     int sizeArry;
     int indexSoal;
     DataService ds;
@@ -103,7 +105,7 @@ public class QuestionQR : MonoBehaviour
         //imageAnnounHolder.enabled = true;
         //TextAnswerHolder.SetActive(true);
         closeAnswer();
-
+        answerTextDone.gameObject.SetActive(false);
 
         //Set First Question
         indexSoal = 0;
@@ -218,9 +220,14 @@ public class QuestionQR : MonoBehaviour
         if (isAnswered[indexSoal] == true)
         {
             scanCaller.interactable = false;
+            scanCaller.gameObject.SetActive(false);
+            answerTextDone.text = answerList[indexSoal];
+            answerTextDone.gameObject.SetActive(true);
         }
         else
         {
+            answerTextDone.gameObject.SetActive(false);
+            scanCaller.gameObject.SetActive(true);
             scanCaller.interactable = true;
         }
 
