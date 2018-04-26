@@ -349,6 +349,27 @@ public class QuestionQR : MonoBehaviour
     {
         if (isAnswered[indexSoal] == true)
         {
+            int tempIndexSoal = indexSoal;
+            bool iterasi1 = false;
+            for (int i = 0; i < questionList.Length; i++)
+            {
+                //Debug.Log(i+" "+iterasi1 +" "+tempIndexSoal);
+                if (isAnswered[i] == false && (i>=indexSoal || iterasi1==true))
+                {
+                    tempIndexSoal = i;
+                    break;
+                }
+                if (i == questionList.Length - 1 && iterasi1==false)
+                {
+                    i = -1;
+                    iterasi1 = true;
+                }
+            }
+            //Debug.Log("final"+tempIndexSoal);
+            if (indexSoal != tempIndexSoal)
+            {
+                indexSoal = tempIndexSoal - 1;
+            }            
             NextQuestion();
         }
     }
