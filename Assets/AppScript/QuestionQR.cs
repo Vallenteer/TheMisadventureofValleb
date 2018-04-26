@@ -36,6 +36,8 @@ public class QuestionQR : MonoBehaviour
     [SerializeField] Text questionHandler;
     [SerializeField] Button scanCaller;
     [SerializeField] Text answerTextDone;
+    [SerializeField] GameObject boxAnsewer;
+
 
     [Header("Image Correct Thingy")]
     [SerializeField] GameObject AnswerCanvas;
@@ -105,7 +107,7 @@ public class QuestionQR : MonoBehaviour
         //imageAnnounHolder.enabled = true;
         //TextAnswerHolder.SetActive(true);
         closeAnswer();
-        answerTextDone.gameObject.SetActive(false);
+        boxAnsewer.SetActive(false);
 
         //Set First Question
         indexSoal = 0;
@@ -221,12 +223,13 @@ public class QuestionQR : MonoBehaviour
         {
             scanCaller.interactable = false;
             scanCaller.gameObject.SetActive(false);
+            boxAnsewer.SetActive(true);
             answerTextDone.text = answerList[indexSoal];
-            answerTextDone.gameObject.SetActive(true);
+            
         }
         else
         {
-            answerTextDone.gameObject.SetActive(false);
+            boxAnsewer.SetActive(false);
             scanCaller.gameObject.SetActive(true);
             scanCaller.interactable = true;
         }
