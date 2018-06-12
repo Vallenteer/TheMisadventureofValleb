@@ -62,9 +62,11 @@ public class DataService  {
         //drop all
 		_connection.DropTable<Pertanyaan> ();
         _connection.DropTable<tb_achivement>();
+        _connection.DropTable<Museum>();
         //create all
         _connection.CreateTable<Pertanyaan> ();
         _connection.CreateTable<tb_achivement>();
+        _connection.CreateTable<Museum>();
 
 
         _connection.InsertAll(new[]{
@@ -72,6 +74,15 @@ public class DataService  {
                 nama_achivement="First Use",
                 sudah_tercapai="true"
                
+            }
+        });
+
+        _connection.InsertAll(new[] {
+            new Museum{
+                museum_name="Museum Prototipe"
+            },
+            new Museum{
+                museum_name="MUSEUM PPIPTEK TMII"
             }
         });
 		_connection.InsertAll (new[]{
@@ -396,9 +407,14 @@ public class DataService  {
 	public IEnumerable<Pertanyaan> GetPertanyaan(){
 		return _connection.Table<Pertanyaan>();
 	}
+    public IEnumerable<Museum> GetMuseumList()
+    {
+        return _connection.Table<Museum>();
+    }
+
 
     //read Query
-	public IEnumerable<Pertanyaan> GetPertanyaanMuseum(string museumID){
+    public IEnumerable<Pertanyaan> GetPertanyaanMuseum(string museumID){
 		return _connection.Table<Pertanyaan>().Where(x => x.museum_id ==museumID );
 	}
     public IEnumerable<tb_achivement> CheckFirstTimeUse()

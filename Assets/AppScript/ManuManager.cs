@@ -40,7 +40,7 @@ public class ManuManager : MonoBehaviour {
 	void Start () {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-           //PlayerPrefs.SetInt("HasPlayed", 0);
+            PlayerPrefs.SetInt("HasPlayed", 0);
             int playTime = PlayerPrefs.GetInt("HasPlayed");
             
             // Debug.Log("test");

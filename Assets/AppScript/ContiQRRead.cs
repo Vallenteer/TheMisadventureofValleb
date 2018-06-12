@@ -30,6 +30,11 @@ public class ContiQRRead : MonoBehaviour {
 
     void Start()
     {
+        DataService ds = new DataService("museum.db");
+
+        var museumList = ds.GetMuseumList();
+        getMuseumList(museumList);
+
         //hide next Button
         nextButton.interactable = false;
 
@@ -51,6 +56,15 @@ public class ContiQRRead : MonoBehaviour {
 
             RestartTime = Time.realtimeSinceStartup;
         };
+    }
+
+    void getMuseumList(IEnumerable<Museum> listMuseum)
+    {
+        MuseumNames.Clear();
+        foreach (Museum mus in listMuseum)
+        {
+            MuseumNames.Add(mus.museum_name);
+        }
     }
 
     /// <summary>
