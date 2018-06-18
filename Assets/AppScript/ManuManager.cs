@@ -40,7 +40,7 @@ public class ManuManager : MonoBehaviour {
 	void Start () {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            PlayerPrefs.SetInt("HasPlayed", 0);
+           //PlayerPrefs.SetInt("HasPlayed", 0);
             int playTime = PlayerPrefs.GetInt("HasPlayed");
             
             // Debug.Log("test");
@@ -50,12 +50,25 @@ public class ManuManager : MonoBehaviour {
             {
                 ds.CreateDB();
                 PlayerPrefs.SetInt("HasPlayed", 1);
+                if (PlayerPrefs.GetFloat("version") < 1)
+                {
+                    //change this if you want default stage 
+                    PlayerPrefs.SetFloat("version", 3);
+                }
+                
             }
             else
             {
                 
                 playTime++;
                 PlayerPrefs.SetInt("HasPlayed", playTime);
+                DataJsonLoad dataload = gameObject.AddComponent<DataJsonLoad>();
+                if (dataload.compareVersion())
+                {
+                    
+                    ds.UpdateDBLink(dataload);
+                }
+
             }
 
             if (!GameObject.FindGameObjectWithTag("ACWatcher"))
