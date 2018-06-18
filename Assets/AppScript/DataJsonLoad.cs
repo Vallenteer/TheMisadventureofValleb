@@ -17,7 +17,7 @@ public class DataJsonLoad : MonoBehaviour {
 
     IEnumerator GetPertanyaan()
     {
-        string getPertanyaanUrl = "http://museumadv.azurewebsites.net/museum/list";
+        string getPertanyaanUrl = "http://museumadv.azurewebsites.net/pertanyaan/list";
         using (UnityWebRequest www = UnityWebRequest.Post(getPertanyaanUrl,"1"))
         {
             //www.chunkedTransfer = false;
@@ -33,13 +33,13 @@ public class DataJsonLoad : MonoBehaviour {
                     string jsonResult =System.Text.Encoding.UTF8.GetString(www.downloadHandler.data);
                     Debug.Log(jsonResult);
 
-                    //JPertanyaan[] entities = JsonHelper.getJsonArray<JPertanyaan>(jsonResult);
-                    JMuseum[] entities = JsonHelper.getJsonArray<JMuseum>(jsonResult);
+                    JPertanyaan[] entities = JsonHelper.getJsonArray<JPertanyaan>(jsonResult);
+                    //JMuseum[] entities = JsonHelper.getJsonArray<JMuseum>(jsonResult);
 
 
                     foreach (var pert in entities)
                     {
-                        Debug.Log(pert.museum);
+                        Debug.Log(pert.soal);
                     }
 
                 }

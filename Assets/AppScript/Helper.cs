@@ -21,20 +21,20 @@ public class JsonHelper
 [System.Serializable]
 public class JPertanyaan
 {
-    public int id { get; set; }
-    public string soal { get; set; }
-    public string jawaban { get; set; }
-    public string museum { get; set; }
-    public string petunjuk { get; set; }
+    public int id;
+    public string soal;
+    public string jawaban;
+    public string museum;
+    public string petunjuk;
 }
 [System.Serializable]
 public class JMuseum
 {
-    public int id { get; set; }
-    public string museum { get; set; }
+    public int id;
+    public string museum;
 }
 [System.Serializable]
 public class JVersion
 {
-    public double version { get; set; }
+    public double version;
 }
