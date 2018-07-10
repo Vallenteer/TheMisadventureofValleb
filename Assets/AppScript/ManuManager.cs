@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -35,9 +36,23 @@ public class ManuManager : MonoBehaviour {
     {
         Application.Quit();
     }
-    
+    IEnumerator checkInternetConnection(Action<bool> action)
+    {
+        WWW www = new WWW("http://google.com");
+        yield return www;
+        if (www.error != null)
+        {
+            Debug.Log(www.error);
+            action(false);
+        }
+        else
+        {
+            Debug.Log(www.error);
+            action(true);
+        }
+    }
     // Use this for initialization
-	void Start () {
+    void Start () {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
            //PlayerPrefs.SetInt("HasPlayed", 0);
@@ -62,12 +77,24 @@ public class ManuManager : MonoBehaviour {
                 
                 playTime++;
                 PlayerPrefs.SetInt("HasPlayed", playTime);
-                DataJsonLoad dataload = gameObject.AddComponent<DataJsonLoad>();
-                if (dataload.compareVersion())
-                {
+
+                
+                StartCoroutine(checkInternetConnection((isConnected) => {
+                    if (isConnected == true)
+                    {
+                        DataJsonLoad dataload = gameObject.AddComponent<DataJsonLoad>();
+                        // handle connection status here
+                        Debug.Log("Internet Konek");
+                        if (dataload.compareVersion())
+                        {
+
+                            ds.UpdateDBLink(dataload);
+                        }
+
+                    }
                     
-                    ds.UpdateDBLink(dataload);
-                }
+                }));
+                
 
             }
 
