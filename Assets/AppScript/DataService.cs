@@ -60,14 +60,7 @@ public class DataService  {
 
     public void UpdateDBLink(DataJsonLoad jsonData)
     {
-        //drop all
-        _connection.DropTable<Pertanyaan>();
-        _connection.DropTable<Museum>();
-        //create all
-        _connection.CreateTable<Pertanyaan>();
-        _connection.CreateTable<Museum>();
-
-
+       
         jsonData.updateDB(jsonData, _connection);
         
 

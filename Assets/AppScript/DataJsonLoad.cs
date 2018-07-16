@@ -32,14 +32,23 @@ public class DataJsonLoad : MonoBehaviour {
         //Pertanyaan[] pertanyaanList = jsonData.GetAllPertanyaan();
         StartCoroutine(GetMuseum());
         StartCoroutine(GetPertanyaan());
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         //foreach (var item in museumList)
         //{
         //    _connection.Insert(item);
         //}
+        //drop all
+        Debug.Log("DropDB");
+        _connection.DropTable<Pertanyaan>();
+        _connection.DropTable<Museum>();
+        //create all
+        _connection.CreateTable<Pertanyaan>();
+        _connection.CreateTable<Museum>();
+
+        Debug.Log("UpdateDB");
         _connection.InsertAll(museumList);
          _connection.InsertAll(pertanyaanList);
-
+        Debug.Log("DoneDB");
         Debug.Log("Update DB");
     }
 

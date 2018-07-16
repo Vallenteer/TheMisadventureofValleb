@@ -118,6 +118,7 @@ public class ContiQRRead : MonoBehaviour {
     {
         foreach (string museum in MuseumNames)
         {
+            Debug.Log(BarcodeRead + " aa " + museum);
             if (BarcodeRead == museum)
             {
                 Museum_ID = museum;
